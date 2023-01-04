@@ -99,16 +99,16 @@ namespace GtkTreeView
             MyStore.IterChildren(out var child, it);
             do
             {
-                var checkState = (int)MyStore.GetValue(child, (int)StoreColumn.CheckState);
+                var checkState = (CheckState)MyStore.GetValue(child, (int)StoreColumn.CheckState);
                 switch (checkState)
                 {
-                    case 0:
+                    case CheckState.False:
                         num0++;
                         break;
-                    case 1:
+                    case CheckState.True:
                         num1++;
                         break;
-                    case 2:
+                    case CheckState.Inconsistent:
                         return CheckState.Inconsistent;
                 }
 
